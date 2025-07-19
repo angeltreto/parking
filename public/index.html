@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Payment Method</title>
+    <link rel="stylesheet" href="./diseño.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-button">←</button>
+        
+        <h1>Add payment method</h1>
+        <p>Enter the card that you want to use to pay for parking.</p>
+        
+        <form id="paymentForm">
+            <div class="input-label">License Plate Number</div>
+            <div class="input-container">
+                <div class="input-icon">🚗</div>
+                <input type="text" id="licensePlate" class="input-field" placeholder="Enter license plate number" required>
+            </div>
+            
+            <div class="input-label">Mobile Number</div>
+            <div class="input-container">
+                <div class="input-icon">📱</div>
+                <input type="tel" id="mobileNumber" class="input-field" placeholder="Enter mobile number" required>
+            </div>
+            
+            <div class="input-label">Credit Card Number</div>
+            <div class="input-container">
+                <div class="card-icon"><span>💳</span></div>
+                <input type="text" id="cardNumber" class="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+            </div>
+            
+            <div class="card-details-row">
+                <div>
+                    <div class="input-label">Expiration Date (MM/YY)</div>
+                    <div class="card-detail-container">
+                        <input type="text" id="expirationDate" class="input-field" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div id="expirationError" class="error-message">Expiration date must be in the future</div>
+                </div>
+                <div>
+                    <div class="input-label">CVV</div>
+                    <div class="card-detail-container">
+                        <input type="text" id="cvv" class="input-field" placeholder="123" maxlength="4" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="address-section">
+                <h2>Billing Address</h2>
+                
+                <div class="input-label">Recipient's Name</div>
+                <div class="input-container">
+                    <div class="input-icon">👤</div>
+                    <input type="text" id="recipientName" class="input-field" placeholder="Full Name" required>
+                </div>
+                
+                <div class="input-label">Street Address</div>
+                <div class="input-container">
+                    <div class="input-icon">🏠</div>
+                    <input type="text" id="streetAddress" class="input-field" placeholder="Street Number and Name" required>
+                </div>
+                
+                <div class="input-label">Apartment/Unit (Optional)</div>
+                <div class="input-container">
+                    <div class="input-icon">🔢</div>
+                    <input type="text" id="apartment" class="input-field" placeholder="Apt, Suite, Unit, etc.">
+                </div>
+                
+                <div class="input-label">City</div>
+                <div class="input-container">
+                    <div class="input-icon">🏙️</div>
+                    <input type="text" id="city" class="input-field" placeholder="City" required>
+                </div>
+                
+                <div class="card-details-row">
+                    <div>
+                        <div class="input-label">State</div>
+                        <div class="card-detail-container">
+                            <input type="text" id="state" class="input-field" placeholder="State" required>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-label">ZIP Code</div>
+                        <div class="card-detail-container">
+                            <input type="text" id="zipCode" class="input-field" placeholder="ZIP Code" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <p class="terms">
+                By selecting "Finish & Accept," you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            </p>
+            
+            <button type="submit" id="submitButton" class="submit-button" disabled>
+                Finish & Accept
+                <span class="lock-icon">🔒</span>
+            </button>
+        </form>
+        
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">Payment Method Added</div>
+                <div class="modal-message">
+                    Your payment method has been successfully added and saved to our database.
+                </div>
+                <button id="modalButton" class="modal-button">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./frontend.js"></script>
+</body>
+</html>

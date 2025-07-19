@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: white;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.back-button {
+    font-size: 24px;
+    margin-bottom: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0 20px;
+    color: #111;
+}
+
+p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Changed border color to light purple */
+.input-container {
+    border: 1px solid #d4c4fb;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 18px;
+}
+
+/* Updated card icon style without the error background */
+.card-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.input-field {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+}
+
+.card-number {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+}
+
+.card-details-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Changed border color to light purple */
+.card-detail-container {
+    flex: 1;
+    border: 1px solid #d4c4fb;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 40px 0;
+}
+
+.terms {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.terms a {
+    color: #5555ff;
+    text-decoration: none;
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #e0e0ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button.active {
+    background-color: #5a3a9b; /* Dark purple when active */
+}
+
+.lock-icon {
+    margin-left: 10px;
+}
+
+.address-section {
+    margin-top: 30px;
+}
+
+.error-message {
+    color: #ff5555;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Modal styles for success message */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #5a3a9b;
+}
+
+.modal-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-button {
+    background-color: #5a3a9b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Database viewer styles */
+.database-viewer {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #d4c4fb;
+    border-radius: 12px;
+    display: none;
+}
+
+.database-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #5a3a9b;
+}
+
+.database-content {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
