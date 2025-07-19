@@ -374,7 +374,7 @@ if (submitBtn) {
         console.log("zipCode: " + zipCode);
 
         try {
-        const response = await fetch("http://parking-gn8l.onrender.com//api/payment", {
+        const response = await fetch("https://parking-gn8l.onrender.com/api/payment", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
