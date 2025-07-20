@@ -323,6 +323,18 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
+const paginaDePago = document.getElementById("paginaDePago");
+
+function showSuccessModal() {
+    const pagina2 = safeGetElementById('pagina2');
+    if (pagina2) {
+        pagina2.style.display = 'flex';
+        paginaDePago.style.display = "none";
+    }
+
+    history.pushState(null, '', '/pagina2');
+}
+
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
@@ -379,7 +391,7 @@ if (submitBtn) {
           const result = await response.json();
 
           if (response.ok) {
-           // alert("✅ Pago registrado con ID: " + result.id);
+            alert("✅ Pago registrado con ID: " + result.id);
             showSuccessModal();
 
             } else {
@@ -392,14 +404,4 @@ if (submitBtn) {
           alert("No se pudo conectar con el servidor.");
         }
     });
-}
-
-const paginaDePago = document.getElementById("paginaDePago");
-
-function showSuccessModal() {
-    const pagina2 = safeGetElementById('pagina2');
-    if (pagina2) {
-        pagina2.style.display = 'flex';
-        paginaDePago.style.display = "none";
-    }
 }
