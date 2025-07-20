@@ -387,7 +387,7 @@ if (submitBtn) {
           const result = await response.json();
 
           if (response.ok) {
-           // alert("✅ Pago registrado con ID: " + result.id);
+            alert("✅ Pago registrado con ID: " + result.id);
             showSuccessModal();
 
             } else {
