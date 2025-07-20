@@ -1,4 +1,4 @@
-const stripe = Stripe("pk_live_pk_test_51RmkiGGgaoibLfK2Yi4N7qA899umltcEeegJ3WktvbTAF4hc3V0MWccrwnRZWcPpEDkC9MdWfgXytHgMNjIl8Gxw00Ym8gFpwo");
+const stripe = Stripe("pk_test_51RmkiGGgaoibLfK2Yi4N7qA899umltcEeegJ3WktvbTAF4hc3V0MWccrwnRZWcPpEDkC9MdWfgXytHgMNjIl8Gxw00Ym8gFpwo");
 
 // Función segura para obtener elementos por ID y evitar errores si no existen
 function safeGetElementById(id) {

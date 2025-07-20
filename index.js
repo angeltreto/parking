@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 
-const stripe = require("stripe")("sk_live_sk_test_51RmkiGGgaoibLfK2rSx6uhHuY2NuzYYNWMXEIuIRv6FKXAU1LrA79sgaoPCozFceRKf939XvsHJslrg62PoJfYBT00ORGl6m6j");
+const stripe = require("stripe")("process.env.STRIPE_SECRET_KEY");
 
 // Inicializa Firebase Admin con credenciales
 admin.initializeApp({
