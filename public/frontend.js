@@ -334,7 +334,7 @@ function cambiarPagina(pagina) {
         pagina = safeGetElementById('paginaX');
         if (pagina) {
             pagina.style.display = 'flex';
-            pagina.innerHTML = `<title>estas en ${} </title>`;
+            pagina.innerHTML = `<title>estas en ${pagina} </title>`;
         }
     };
 }
