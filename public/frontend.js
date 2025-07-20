@@ -331,9 +331,24 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
-function Redireccion(){
-    window.location.href='https://parking-gn8l.onrender.com/pagina2.html';
+function Redireccion() {
+  // Cambia la URL en la barra sin recargar la página
+  history.pushState(null, '', '/pagina2');
+
+  // Aquí puedes llamar una función para actualizar el contenido del DOM según la URL nueva
+  // Por ejemplo:
+  cargarContenidoDePagina2();
 }
+
+function cargarContenidoDePagina2(){
+    const contenedor = document.getElementById('contenedor');
+  
+  contenedor.innerHTML = `
+    <h1>Esta es la página 2 generada desde JS</h1>
+    <p>Este contenido lo escribí directamente con JavaScript usando innerHTML.</p>
+    <button onclick="alert('¡Hola desde página 2!')">Presióname</button>
+  `;
+};
 
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
