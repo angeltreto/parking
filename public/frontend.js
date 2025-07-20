@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function cambiarPagina(pagina) {
     //cambiar la url por completo
-    window.location.href = `https://parking-gn8l.onrender.com/${pagina}"`;
+    window.location.href = `https://parking-gn8l.onrender.com/${pagina}`;
 
     //cambiar la url sin recargar la pagina
     //history.pushState({}, '', `/${pagina}`);
