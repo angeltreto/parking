@@ -392,7 +392,9 @@ if (submitBtn) {
 
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
-            showSuccessModal();
+            //showSuccessModal();
+
+            paginaDePago.style.display = "none";
 
             } else {
             alert("❌ Error: " + result.error);
