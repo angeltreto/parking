@@ -388,7 +388,7 @@ if (submitBtn) {
 
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
-            showSuccessModal();
+            //showSuccessModal();
 
             } else {
             alert("❌ Error: " + result.error);
