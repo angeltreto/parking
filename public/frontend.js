@@ -331,25 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
-function Redireccion() {
-  // Cambia la URL en la barra sin recargar la página
-  history.pushState(null, '', '/pagina2');
-
-  // Aquí puedes llamar una función para actualizar el contenido del DOM según la URL nueva
-  // Por ejemplo:
-  cargarContenidoDePagina2();
-}
-
-function cargarContenidoDePagina2(){
-    const contenedor = document.getElementById('contenedor');
-  
-  contenedor.innerHTML = `
-    <h1>Esta es la página 2 generada desde JS</h1>
-    <p>Este contenido lo escribí directamente con JavaScript usando innerHTML.</p>
-    <button onclick="alert('¡Hola desde página 2!')">Presióname</button>
-  `;
-};
-
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
@@ -409,14 +390,39 @@ if (submitBtn) {
            // alert("✅ Pago registrado con ID: " + result.id);
            // showSuccessModal();
 
-            Redireccion();
-          } else {
+            window.onpopstate = function(event) {
+            const path = window.location.pathname;
+  
+                if (path === '/pagina2') {
+                    cargarContenidoDePagina2();
+                } else {
+                    //la páginaDePagp es la default
+                    document.getElementById('paginaDePago').style.display = 'block';
+                    document.getElementById('pagina2').style.display = 'none';
+                    cargarContenidoDePagina2();
+                }
+            };
+
+            } else {
             alert("❌ Error: " + result.error);
             console.error(result);
           }
+
         } catch (error) {
           console.error("❌ Error al conectar con backend:", error);
           alert("No se pudo conectar con el servidor.");
         }
     });
 }
+
+function cargarContenidoDePagina2(){
+    document.getElementById('paginaDePago').style.display = 'none';
+    const contenedor = document.getElementById('contenedor');
+    contenedor.style.display="none";
+  
+  contenedor.innerHTML = `
+    <h1>Esta es la página 2 generada desde JS</h1>
+    <p>Este contenido lo escribí directamente con JavaScript usando innerHTML.</p>
+    <button onclick="alert('¡Hola desde página 2!')">Presióname</button>
+  `;
+};
