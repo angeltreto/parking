@@ -390,19 +390,7 @@ if (submitBtn) {
            // alert("✅ Pago registrado con ID: " + result.id);
            // showSuccessModal();
 
-            window.onpopstate = function(event) {
-            const path = window.location.pathname;
-  
-                if (path === '/pagina2') {
-                    cargarContenidoDePagina2();
-                } else {
-                    //la páginaDePagp es la default
-                    document.getElementById('paginaDePago').style.display = 'block';
-                    document.getElementById('pagina2').style.display = 'none';
-                    cargarContenidoDePagina2();
-                }
-            };
-
+           cambiarURLSinRecargar("/pagina2");
             } else {
             alert("❌ Error: " + result.error);
             console.error(result);
@@ -416,13 +404,22 @@ if (submitBtn) {
 }
 
 function cargarContenidoDePagina2(){
-    document.getElementById('paginaDePago').style.display = 'none';
-    const contenedor = document.getElementById('contenedor');
-    contenedor.style.display="none";
-  
-  contenedor.innerHTML = `
-    <h1>Esta es la página 2 generada desde JS</h1>
-    <p>Este contenido lo escribí directamente con JavaScript usando innerHTML.</p>
-    <button onclick="alert('¡Hola desde página 2!')">Presióname</button>
-  `;
+    
 };
+
+function cambiarURLSinRecargar(nuevaURL) {
+  history.pushState(null, null, nuevaURL);
+  cambiarRuta(nuevaURL);
+}
+
+function cambiarRuta(url) {
+  if (url.endsWith("/pagina2")) {
+    // Mostrar contenido o sección de página 2
+    document.getElementById("paginaDePago").style.display = "none";
+    document.getElementById("pagina2").style.display = "block";
+  } else {
+    // Mostrar contenido o sección de páginaDePago
+    document.getElementById("paginaDePago").style.display = "block";
+    document.getElementById("pagina2").style.display = "none";
+  }
+}
