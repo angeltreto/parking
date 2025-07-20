@@ -390,7 +390,7 @@ if (submitBtn) {
            // alert("✅ Pago registrado con ID: " + result.id);
            // showSuccessModal();
 
-           cambiarURLSinRecargar("/pagina2");
+           cambiarURL("/pagina2");
             } else {
             alert("❌ Error: " + result.error);
             console.error(result);
@@ -403,17 +403,21 @@ if (submitBtn) {
     });
 }
 
-function cambiarURLSinRecargar(nuevaURL) {
-  history.pushState(null, null, nuevaURL);
-  actualizarVistaSegunRuta(nuevaURL);
+function cambiarUrl(urlLink){
+    const url = new URL(window.location);
+
+    url.searchParams.set("url", urlLink);
+    window.history.replaceState({},"", url);
+
+    cargarContenido(urlLink);
 }
 
-// Se ejecuta también al presionar "atrás" o "adelante" del navegador
-window.onpopstate = () => actualizarVistaSegunRuta(location.pathname);
+function cargarContenido(urlLink){
+    const ContentDiv = document.getElementById("page2");
 
-function actualizarVistaSegunRuta(ruta) {
-  const mostrarPagina2 = ruta.endsWith("/pagina2");
+    if (urlLink == "pagina2"){
+        ContentDiv.innerHTML = "<h2>Hola mundo<h2>"
+    };
 
-  document.getElementById("pagina2").style.display = mostrarPagina2 ? "block" : "none";
-  document.getElementById("paginaDePago").style.display = mostrarPagina2 ? "none" : "block";
+    ContentDiv.style.display = "block";
 }
