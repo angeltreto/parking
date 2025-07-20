@@ -97,7 +97,7 @@ app.post('/api/payment', async (req, res) => {
 
     const docRef = await db.collection('payments').add(paymentData);
 
-    res.status(200).json({ message: 'Pago registrado con éxito', id: docRef.id });
+    //res.status(200).json({ message: 'Pago registrado con éxito', id: docRef.id });
 
   } catch (error) {
     console.error('❌ Error al procesar el pago:', error);
