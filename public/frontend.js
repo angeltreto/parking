@@ -243,13 +243,14 @@ function updateDatabaseViewer() {
 
 // Function to show the success modal
 function showSuccessModal() {
-    const pagina2 = safeGetElementById('successModal');
+    history.pushState({}, '', '/pagina2');
+    /*const pagina2 = safeGetElementById('successModal');
     const paginaDePago = safeGetElementById('paginaDePago');
     if (pagina2) {
         pagina2.style.display = 'flex';
     }
 
-    paginaDePago.style.display = "none";
+    paginaDePago.style.display = "none";*/
 }
 
 // Initialize when the document is loaded
