@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Payment Method</title>
     <link rel="stylesheet" href="./diseño.css">
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-    <div id="paginaDePago" class="container" style="display: block;">
+    <div class="container">
         <button class="back-button">←</button>
         
         <h1>Add payment method</h1>
@@ -103,6 +102,16 @@
                 <span class="lock-icon">🔒</span>
             </button>
         </form>
+        
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">Payment Method Added</div>
+                <div class="modal-message">
+                    Your payment method has been successfully added and saved to our database.
+                </div>
+                <button id="modalButton" class="modal-button">OK</button>
+            </div>
+        </div>
     </div>
 
     <script src="./frontend.js"></script>
