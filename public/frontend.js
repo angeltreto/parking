@@ -394,9 +394,12 @@ if (submitBtn) {
     });
 }
 
+const paginaDePago = document.getElementById("paginaDePago");
+
 function showSuccessModal() {
     const pagina2 = safeGetElementById('pagina2');
-    if (modal) {
-        modal.style.display = 'flex';
+    if (pagina2) {
+        pagina2.style.display = 'flex';
+        paginaDePago.style.display = "none";
     }
 }
