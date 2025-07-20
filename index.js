@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 // Content Security Policy (ajusta si usas scripts inline)
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'");
+  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'  connect-src 'self'");
   next();
 });
 
