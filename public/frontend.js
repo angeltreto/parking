@@ -403,23 +403,17 @@ if (submitBtn) {
     });
 }
 
-function cargarContenidoDePagina2(){
-    
-};
-
 function cambiarURLSinRecargar(nuevaURL) {
   history.pushState(null, null, nuevaURL);
-  cambiarRuta(nuevaURL);
+  actualizarVistaSegunRuta(nuevaURL);
 }
 
-function cambiarRuta(url) {
-  if (url.endsWith("/pagina2")) {
-    // Mostrar contenido o sección de página 2
-    document.getElementById("paginaDePago").style.display = "none";
-    document.getElementById("pagina2").style.display = "block";
-  } else {
-    // Mostrar contenido o sección de páginaDePago
-    document.getElementById("paginaDePago").style.display = "block";
-    document.getElementById("pagina2").style.display = "none";
-  }
+// Se ejecuta también al presionar "atrás" o "adelante" del navegador
+window.onpopstate = () => actualizarVistaSegunRuta(location.pathname);
+
+function actualizarVistaSegunRuta(ruta) {
+  const mostrarPagina2 = ruta.endsWith("/pagina2");
+
+  document.getElementById("pagina2").style.display = mostrarPagina2 ? "block" : "none";
+  document.getElementById("paginaDePago").style.display = mostrarPagina2 ? "none" : "block";
 }
