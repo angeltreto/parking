@@ -331,6 +331,10 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
+function Redireccion(){
+    window.location.href='https://parking-gn8l.onrender.com/pagina2.html';
+}
+
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
@@ -389,6 +393,8 @@ if (submitBtn) {
           if (response.ok) {
            // alert("✅ Pago registrado con ID: " + result.id);
            // showSuccessModal();
+
+            Redireccion();
           } else {
             alert("❌ Error: " + result.error);
             console.error(result);
