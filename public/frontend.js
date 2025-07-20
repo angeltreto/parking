@@ -241,18 +241,6 @@ function updateDatabaseViewer() {
     }
 }
 
-// Function to show the success modal
-function showSuccessModal() {
-    history.pushState({}, '', '/pagina2');
-    /*const pagina2 = safeGetElementById('successModal');
-    const paginaDePago = safeGetElementById('paginaDePago');
-    if (pagina2) {
-        pagina2.style.display = 'flex';
-    }
-
-    paginaDePago.style.display = "none";*/
-}
-
 // Initialize when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const cardInput = safeGetElementById('cardNumber');
@@ -335,6 +323,22 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
+function cambiarPagina(pagina) {
+    //cambiar la url por completo
+    window.location.href = `https://parking-gn8l.onrender.com/${pagina}"`;
+
+    //cambiar la url sin recargar la pagina
+    //history.pushState({}, '', `/${pagina}`);
+
+    if (window.location.href === `https://parking-gn8l.onrender.com/${pagina}`){
+        pagina = safeGetElementById('paginaX');
+        if (pagina) {
+            pagina.style.display = 'flex';
+            pagina.innerHTML = `<title>estas en ${} </title>`;
+        }
+    };
+}
+
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
@@ -392,7 +396,10 @@ if (submitBtn) {
 
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
-            showSuccessModal();
+
+            const paginaDePago = safeGetElementById('paginaDePago');
+            //paginaDePago.style.display = "none";
+            cambiarPagina("paginaX");
           } else {
             alert("❌ Error: " + result.error);
             console.error(result);
