@@ -241,6 +241,14 @@ function updateDatabaseViewer() {
     }
 }
 
+// Function to show the success modal
+function showSuccessModal() {
+    const modal = safeGetElementById('successModal');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
 // Initialize when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const cardInput = safeGetElementById('cardNumber');
@@ -380,12 +388,11 @@ if (submitBtn) {
 
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
-
-            } else {
+            showSuccessModal();
+          } else {
             alert("❌ Error: " + result.error);
             console.error(result);
           }
-
         } catch (error) {
           console.error("❌ Error al conectar con backend:", error);
           alert("No se pudo conectar con el servidor.");
