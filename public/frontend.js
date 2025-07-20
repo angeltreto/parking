@@ -335,10 +335,9 @@ function showSuccessModal() {
     history.pushState(null, '', '/pagina2');
 }
 
-// Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
-    submitBtn.addEventListener("click", async () => {
+    submitBtn.addEventListener("click", async (event) => {  // <--- aquí
         event.preventDefault();
 
         const licensePlate = safeGetElementById("licensePlate")?.value ?? '';
@@ -366,42 +365,28 @@ if (submitBtn) {
                         zipCode 
                     };
 
-        console.log("licensePlate: " + licensePlate);
-        console.log("mobileNumber: " + mobileNumber);
-        console.log("cardNumber: " + cardNumber);
-        console.log("expirationDate: " + expirationDate);
-        console.log("nombre: " + name);
-        console.log("fecha: " + expirationDate);
-        console.log("cvv: " + cvv);
-        console.log("streetAddress: " + streetAddress);
-        console.log("apartment: " + apartment);
-        console.log("city: " + city);
-        console.log("state: " + state);
-        console.log("zipCode: " + zipCode);
-
         try {
-        const response = await fetch("https://parking-gn8l.onrender.com/api/payment", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-          });
+            const response = await fetch("https://parking-gn8l.onrender.com/api/payment", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+              });
 
-          const result = await response.json();
+            const result = await response.json();
 
-          if (response.ok) {
-            alert("✅ Pago registrado con ID: " + result.id);
-            showSuccessModal();
-
+            if (response.ok) {
+                alert("✅ Pago registrado con ID: " + result.id);
+                showSuccessModal();
             } else {
-            alert("❌ Error: " + result.error);
-            console.error(result);
-          }
+                alert("❌ Error: " + result.error);
+                console.error(result);
+            }
 
         } catch (error) {
-          console.error("❌ Error al conectar con backend:", error);
-          alert("No se pudo conectar con el servidor.");
+            console.error("❌ Error al conectar con backend:", error);
+            alert("No se pudo conectar con el servidor.");
         }
     });
 }
