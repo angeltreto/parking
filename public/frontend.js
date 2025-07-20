@@ -241,14 +241,6 @@ function updateDatabaseViewer() {
     }
 }
 
-// Function to show the success modal
-function showSuccessModal() {
-    const modal = safeGetElementById('successModal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-}
-
 // Initialize when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const cardInput = safeGetElementById('cardNumber');
@@ -388,9 +380,8 @@ if (submitBtn) {
 
           if (response.ok) {
            // alert("✅ Pago registrado con ID: " + result.id);
-           // showSuccessModal();
+            showSuccessModal();
 
-           cambiarURL("/pagina2");
             } else {
             alert("❌ Error: " + result.error);
             console.error(result);
@@ -403,21 +394,9 @@ if (submitBtn) {
     });
 }
 
-function cambiarUrl(urlLink){
-    const url = new URL(window.location);
-
-    url.searchParams.set("url", urlLink);
-    window.history.replaceState({},"", url);
-
-    cargarContenido(urlLink);
-}
-
-function cargarContenido(urlLink){
-    const ContentDiv = document.getElementById("page2");
-
-    if (urlLink == "pagina2"){
-        ContentDiv.innerHTML = "<h2>Hola mundo<h2>"
-    };
-
-    ContentDiv.style.display = "block";
+function showSuccessModal() {
+    const pagina2 = safeGetElementById('pagina2');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
 }
