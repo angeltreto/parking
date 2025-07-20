@@ -241,6 +241,14 @@ function updateDatabaseViewer() {
     }
 }
 
+// Function to show the success modal
+function showSuccessModal() {
+    const modal = safeGetElementById('successModal');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
 // Initialize when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const cardInput = safeGetElementById('cardNumber');
@@ -323,18 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
-const paginaDePago = document.getElementById("paginaDePago");
-
-function showSuccessModal() {
-    const pagina2 = safeGetElementById('pagina2');
-    if (pagina2) {
-        pagina2.style.display = 'flex';
-        paginaDePago.style.display = "none";
-    }
-
-    history.pushState(null, '', '/pagina2');
-}
-
 // Listener para el botón submit
 const submitBtn = safeGetElementById("submitButton");
 if (submitBtn) {
@@ -391,10 +387,8 @@ if (submitBtn) {
           const result = await response.json();
 
           if (response.ok) {
-            alert("✅ Pago registrado con ID: " + result.id);
-            //showSuccessModal();
-
-            paginaDePago.style.display = "none";
+           // alert("✅ Pago registrado con ID: " + result.id);
+            showSuccessModal();
 
             } else {
             alert("❌ Error: " + result.error);
