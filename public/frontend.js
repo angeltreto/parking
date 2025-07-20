@@ -241,14 +241,6 @@ function updateDatabaseViewer() {
     }
 }
 
-// Function to show the success modal
-function showSuccessModal() {
-    const modal = safeGetElementById('successModal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-}
-
 // Initialize when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const cardInput = safeGetElementById('cardNumber');
@@ -388,7 +380,6 @@ if (submitBtn) {
 
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
-            //showSuccessModal();
 
             } else {
             alert("❌ Error: " + result.error);
