@@ -109,3 +109,7 @@ app.post('/api/payment', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Servidor escuchando en http://localhost:${port}`);
 });
+
+app.get("/paginaX", (req, res) => {
+  res.send("<h1>Esta es la página X</h1>");
+});
