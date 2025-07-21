@@ -1,7 +1,5 @@
 const stripe = Stripe("pk_test_51RmkiGGgaoibLfK2Yi4N7qA899umltcEeegJ3WktvbTAF4hc3V0MWccrwnRZWcPpEDkC9MdWfgXytHgMNjIl8Gxw00Ym8gFpwo");
 
-const todasLasPaginas = ['paginaDePago', 'paginaX'];
-
 // Función segura para obtener elementos por ID y evitar errores si no existen
 function safeGetElementById(id) {
     return document.getElementById(id);
@@ -326,24 +324,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cambiarPagina(pagina) {
-    // Si no se recibe parámetro, usar pathname actual
-    if (!pagina) {
-        pagina = window.location.pathname.substring(1) || 'paginaDePago';
-    }
+    //cambiar la url por completo
+    //window.location.href = `https://parking-gn8l.onrender.com/${pagina}`;
 
-    // Ocultar todas las páginas
-    todasLasPaginas.forEach(id => {
-        const div = document.getElementById(id);
-        if (div) div.style.display = 'none';
-    });
+    //cambiar la url sin recargar la pagina
+    history.pushState({}, '', `/${pagina}`);
 
-    // Mostrar la página actual
-    const divActual = document.getElementById(pagina);
-    if (divActual) {
-        divActual.style.display = 'flex';
-    } else {
-        console.warn(`No se encontró el div con id="${pagina}"`);
-    }
+    if (window.location.href === `https://parking-gn8l.onrender.com/${pagina}`){
+        pagina = safeGetElementById('paginaX');
+        if (pagina) {
+            pagina.style.display = 'flex';
+            pagina.innerHTML = `<title>estas en ${pagina} </title>`;
+        }
+    };
 }
 
 // Listener para el botón submit
@@ -404,8 +397,9 @@ if (submitBtn) {
           if (response.ok) {
             alert("✅ Pago registrado con ID: " + result.id);
 
-            history.pushState({}, '', `/${todasLasPaginas[1]}`);
-            cambiarPagina(todasLasPaginas[1]);
+            const paginaDePago = safeGetElementById('paginaDePago');
+            //paginaDePago.style.display = "none";
+            cambiarPagina("paginaX");
           } else {
             alert("❌ Error: " + result.error);
             console.error(result);
@@ -416,10 +410,3 @@ if (submitBtn) {
         }
     });
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-    cambiarPagina(); // detecta la página por URL
-});
-window.addEventListener('popstate', () => {
-    cambiarPagina(); // misma función
-});
