@@ -291,4 +291,36 @@ p {
   .terms {
     font-size: 14px;
   }
+
+  .card-details-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card-details-row > div {
+    flex: 1;
+    min-width: 0; /* Para evitar que crezcan demasiado */
+}
+
+/* Responsive: reducir tamaño sin cambiar a columna */
+@media (max-width: 541px) {
+  .card-details-row {
+    gap: 10px;
+  }
+
+  .card-details-row > div {
+    flex: 1;
+  }
+
+  .card-detail-container {
+    padding: 8px; /* Ajuste más compacto */
+  }
+
+  .card-details-row input {
+    font-size: 16px;
+    text-align: center; /* Para centrar el texto */
+  }
+}
+
 }
