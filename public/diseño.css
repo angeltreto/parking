@@ -232,3 +232,62 @@ p {
     max-height: 300px;
     overflow-y: auto;
 }
+
+@media (max-width: 400px) {
+  body {
+    padding: 20px 10px; /* Menos padding para que no quede espacio extra */
+  }
+
+  .container {
+    max-width: 100%; /* Que ocupe casi todo el ancho */
+    margin: 0 5px; /* Un pequeño margen lateral */
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 28px; /* Texto más pequeño para caber bien */
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .input-label {
+    font-size: 14px;
+  }
+
+  .input-field, 
+  .card-number,
+  .card-detail-container input {
+    font-size: 16px; /* Un poco más pequeño para caber */
+    padding: 10px;
+  }
+
+  .input-container,
+  .card-detail-container {
+    padding: 10px; /* Menos padding para que no quede muy grande */
+  }
+
+  .card-details-row {
+    flex-direction: column; /* Que los inputs se apilen en vez de ir lado a lado */
+    gap: 10px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .back-button {
+    font-size: 20px;
+  }
+
+  .terms {
+    font-size: 14px;
+  }
+}
