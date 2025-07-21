@@ -323,20 +323,21 @@ document.addEventListener('DOMContentLoaded', function() {
     expirationInput.value = `${month}/${year}`;
 });
 
-function cambiarPagina(pagina) {
-    //cambiar la url por completo
-    //window.location.href = `https://parking-gn8l.onrender.com/${pagina}`;
+function cambiarPagina(paginaId) {
+    // 1. Cambiar la URL en la barra del navegador sin recargar la página
+    history.pushState({}, '', `/${paginaId}`);
+    
+    // 2. Ocultar la página de pago
+    const paginaDePago = safeGetElementById('paginaDePago');
+    if (paginaDePago) {
+        paginaDePago.style.display = 'none';
+    }
 
-    //cambiar la url sin recargar la pagina
-    history.pushState({}, '', `/${pagina}`);
-
-    if (window.location.href === `https://parking-gn8l.onrender.com/${pagina}`){
-        pagina = safeGetElementById('paginaX');
-        if (pagina) {
-            pagina.style.display = 'flex';
-            pagina.innerHTML = `<title>estas en ${pagina} </title>`;
-        }
-    };
+    // 3. Obtener y mostrar el elemento de la nueva página usando el ID
+    const nuevaPagina = safeGetElementById(paginaId);
+    if (nuevaPagina) {
+        nuevaPagina.style.display = 'flex'; // O 'block', según tu diseño
+    }
 }
 
 // Listener para el botón submit
