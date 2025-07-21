@@ -331,7 +331,7 @@ function cambiarPagina(pagina) {
     //history.pushState({}, '', `/${pagina}`);
 
     if (window.location.href === `https://parking-gn8l.onrender.com/${pagina}`){
-        pagina = safeGetElementById('paginaX');
+        pagina = safeGetElementById('react-root');
         if (pagina) {
             pagina.style.display = 'flex';
             //pagina.innerHTML = `<title>estas en ${pagina} </title>`;
