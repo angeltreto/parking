@@ -398,7 +398,7 @@ if (submitBtn) {
             alert("✅ Pago registrado con ID: " + result.id);
 
             const paginaDePago = safeGetElementById('paginaDePago');
-            //paginaDePago.style.display = "none";
+            paginaDePago.style.display = "none";
             cambiarPagina("paginaX");
           } else {
             alert("❌ Error: " + result.error);
