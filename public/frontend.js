@@ -325,10 +325,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function cambiarPagina(pagina) {
     //cambiar la url por completo
-    window.location.href = `https://parking-gn8l.onrender.com/${pagina}`;
+    //window.location.href = `https://parking-gn8l.onrender.com/${pagina}`;
 
     //cambiar la url sin recargar la pagina
-    //history.pushState({}, '', `/${pagina}`);
+    history.pushState({}, '', `/${pagina}`);
 
     if (window.location.href === `https://parking-gn8l.onrender.com/${pagina}`){
         pagina = safeGetElementById('paginaX');
@@ -398,7 +398,7 @@ if (submitBtn) {
             alert("✅ Pago registrado con ID: " + result.id);
 
             const paginaDePago = safeGetElementById('paginaDePago');
-            //paginaDePago.style.display = "none";
+            paginaDePago.style.display = "none";
             cambiarPagina("paginaX");
           } else {
             alert("❌ Error: " + result.error);
@@ -410,3 +410,8 @@ if (submitBtn) {
         }
     });
 }
+
+window.addEventListener('popstate', () => {
+    const path = window.location.pathname.substring(1); // quitar "/"
+    cambiarPagina(path || 'paginaDePago'); // página por defecto
+});
