@@ -324,19 +324,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cambiarPagina(paginaId) {
-    // 1. Cambiar la URL en la barra del navegador sin recargar la página
+    // Cambiar la URL en la barra del navegador sin recargar la página
     history.pushState({}, '', `/${paginaId}`);
     
-    // 2. Ocultar la página de pago
+    // Ocultar la página de pago
     const paginaDePago = safeGetElementById('paginaDePago');
     if (paginaDePago) {
         paginaDePago.style.display = 'none';
     }
 
-    // 3. Obtener y mostrar el elemento de la nueva página usando el ID
+    // Obtener y mostrar el elemento de la nueva página usando el ID
     const nuevaPagina = safeGetElementById(paginaId);
     if (nuevaPagina) {
-        nuevaPagina.style.display = 'flex'; // O 'block', según tu diseño
+        nuevaPagina.style.display = 'flex';
     }
 }
 
