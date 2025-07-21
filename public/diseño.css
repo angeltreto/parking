@@ -233,7 +233,7 @@ p {
     overflow-y: auto;
 }
 
-@media (max-width: 541px) {
+@media (max-width: 400px) {
   body {
     padding: 20px 10px; /* Menos padding para que no quede espacio extra */
   }
