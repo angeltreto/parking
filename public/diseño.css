@@ -233,20 +233,20 @@ p {
     overflow-y: auto;
 }
 
-/* Media query para pantallas pequeñas (teléfonos, menos de 400px ancho) */
+/* Media query para pantallas pequeñas (teléfonos, menos de 541px ancho) */
 @media (max-width: 541px) {
   body {
-    padding: 20px 10px; /* Menos padding para que no quede espacio extra */
+    padding: 20px 10px;
   }
 
   .container {
-    max-width: 100%; /* Que ocupe casi todo el ancho */
-    margin: 0 5px; /* Un pequeño margen lateral */
+    max-width: 100%;
+    margin: 0 5px;
     padding: 0 10px;
   }
 
   h1 {
-    font-size: 28px; /* Texto más pequeño para caber bien */
+    font-size: 28px;
   }
 
   h2 {
@@ -262,21 +262,16 @@ p {
     font-size: 14px;
   }
 
-  .input-field, 
+  .input-field,
   .card-number,
   .card-detail-container input {
-    font-size: 16px; /* Un poco más pequeño para caber */
+    font-size: 16px;
     padding: 10px;
   }
 
   .input-container,
   .card-detail-container {
-    padding: 10px; /* Menos padding para que no quede muy grande */
-  }
-
-  .card-details-row {
-    flex-direction: column; /* Que los inputs se apilen en vez de ir lado a lado */
-    gap: 10px;
+    padding: 10px;
   }
 
   .submit-button {
@@ -292,35 +287,25 @@ p {
     font-size: 14px;
   }
 
+  /* Fila con dos cajas lado a lado */
   .card-details-row {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.card-details-row > div {
-    flex: 1;
-    min-width: 0; /* Para evitar que crezcan demasiado */
-}
-
-/* Responsive: reducir tamaño sin cambiar a columna */
-@media (max-width: 541px) {
-  .card-details-row {
+    flex-direction: row; /* Asegura que estén lado a lado */
     gap: 10px;
+    margin-bottom: 20px;
   }
 
+  /* Cada caja ocupa el 50% */
   .card-details-row > div {
-    flex: 1;
+    width: 50%;
   }
 
+  /* Tamaño compacto y consistente */
   .card-detail-container {
-    padding: 8px; /* Ajuste más compacto */
+    padding: 10px;
   }
 
-  .card-details-row input {
+  .card-detail-container input {
     font-size: 16px;
-    text-align: center; /* Para centrar el texto */
   }
-}
-
 }
